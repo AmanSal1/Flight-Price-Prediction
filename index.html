@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Price Prediction</title>
+
+    <style>
+
+     .card-title2{
+     position: absolute;
+     left : 900px;
+     bottom : 479px;
+     font-size:20px;
+        }
+
+    #Source{
+    position: absolute;
+    left : 900px;
+    bottom : 463px;
+    }
+
+    .card-title3{
+    position: absolute;
+    left : 900px;
+    bottom : 370px;
+    font-size:20px;
+
+    }
+    #Destination{
+    position: absolute;
+    left : 900px;
+    bottom : 340px;
+
+    }
+    .card-title4{
+    position: absolute;
+    left : 900px;
+    bottom : 250px;
+    font-size:20px;
+
+    }
+    #airline{
+    position: absolute;
+    left : 900px;
+    bottom : 220px;
+
+    }
+    .card-title5{
+    position: absolute;
+    left : 11px;
+    bottom: 170px
+
+
+    }
+    #fli{
+    font-size:30px;
+    color:black;
+    }
+    h3{
+    position: absolute;
+    left:-100px;
+    bottom: 390px;
+    font-size:30px;
+    }
+
+    body {
+    background-image: url('https://images.unsplash.com/photo-1570710891163-6d3b5c47248b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Nnx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    }
+
+    h5{
+    bottom: 200px;
+    }
+    #submit{
+    position:absolute;
+    bottom:300px;
+    width:70px;
+    height:40px;
+    }
+
+
+    </style>
+
+</head>
+
+<body>
+
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a id = "fli" href="/"><center><b>FLIGHT PRICE</b></center></a>
+            </div>
+        </div>
+    </nav>
+
+    <br><br><br>
+
+
+    <div class="container">
+
+
+
+        <form action="/predict" method="post">
+
+
+<!--            <div class="row">-->
+<!--                <div class="col-sm-6">-->
+<!--                    <div class="card">-->
+<!--                        <div class="card-body">-->
+                            <h5 style="margin-left: 100px; font-size:20px;" class="card-title1">Departure Date</h5>
+                            <!-- Departure -->
+                            <input style="margin-left: 100px;"type="datetime-local" name="Dep_Time" id="Dep_Time" required="required">
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+                <br>
+                <br>
+                <br>
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 style="margin-left: 100px;font-size:20px; "class="card-title">Arrival Date</h5>
+                            <!-- Arrival -->
+                            <input style="margin-left: 100px"type="datetime-local" name="Arrival_Time" id="Arrival_Time" required="required">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+            <br>
+            <br>
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <!-- Source -->
+                            <h5 class="card-title2">Source</h5>
+                            <select name="Source" id="Source" required="required">
+                                <option value="f_Delhi">Delhi</option>
+                                <option value="f_Kolkata">Kolkata</option>
+                                <option value="f_Mumbai">Mumbai</option>
+                                <option value="f_Chennai">Chennai</option>
+                                <option value="f_Bangalore">Bangalore</option>
+                                <option value="f_Hyderabad">Hyderabad</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title3">Destination</h5>
+                            <!-- Destination -->
+                            <select name="Destination" id="Destination" required="required">
+                                <option value="Mumbai">Mumbai</option>
+                                <option value="Delhi">Delhi</option>
+                                <option value="Bangalore">Bangalore</option>
+                                <option value="Hyderabad">Hyderabad</option>
+                                <option value="Chennai">Chennai</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <br>
+            <br>
+            <br>
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 style="margin-left: 100px;font-size:20px;"class="card-title5">Stoppage</h5>
+                            <!-- Total Stops -->
+                            <select style="margin-left: 100px"name="stops" required="required">
+                                <option value="0">Non-Stop</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title4">Which Airline you want to travel?</h5>
+                            <!-- Airline -->
+                            <select name="airline" id="airline" required="required">
+                                <option value="AirIndia">AirIndia</option>
+                                <option value="AirAsia">AirAsia</option>
+                                <option value="GoFirst">GOFirst</option>
+                                <option value="Indigo">Indigo</option>
+                                <option value="SpiceJet">SpiceJet</option>
+                                <option value="Vistara">Vistara</option>
+                                <option value="StarAir">StarAir</option>
+                                <option value="Truejet">Truejet</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 style="margin-left: 100px; font-size:20px;"class="card-title">Choose your class</h5>
+                            <select style="margin-left: 100px"name="Class" id="Class" required="required">
+                                <option value="Economy">Economy</option>
+                                <option value="Business">Business</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <br>
+            <br>
+            <br>
+            <!-- Submit -->
+
+            <input style="margin-left: 600px" type="submit" value="Submit" id="submit">
+
+
+        </form>
+
+        <br>
+        <br>
+        <h3 id = "pred"style="margin-left: 550px" ><b>{{ prediction_text }}</b></h3>
+
+        <br>
+        <br>
+
+    </div>
+
+
+</body>
+
+</html>
