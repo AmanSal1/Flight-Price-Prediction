@@ -5,6 +5,10 @@ import sklearn
 import numpy as np
 
 app = Flask(__name__)
+DEBUG = 1
+HOST = '0.0.0.0'
+PORT = 8080
+app.jinja_env.auto_reload = True
 
 model = pickle.load(open("model1.pkl","rb"))
 
