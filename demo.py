@@ -113,5 +113,5 @@ def predict_fare():
         return render_template("index.html", prediction_text="Your Flight price is Rs. {}".format(output))
 
 
-if __name__=="__main__":
-    app.run(debug=True)
+# if __name__=="__main__":
+#     app.run(debug=True)
